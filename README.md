@@ -20,6 +20,9 @@ Similar to [Andrej Karpathy's idea file on LLM-wiki](https://gist.github.com/kar
 - Tied to one stack. The course never says "use LangChain" or "use Pydantic AI." Your AI partner suggests the stack that fits your project.
 - A reference manual. When you need an exact API signature, ask your AI or read the docs.
 
+
+Join the [discord channel](https://discord.gg/dWSnHAFdpb) if you want to learn and build together! 
+
 ---
 
 ## How to start
