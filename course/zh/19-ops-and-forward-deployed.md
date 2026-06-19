@@ -308,3 +308,12 @@ prompt、skill 和 tool 的改动与代码的 deploy 方式不同:
 ## 接下来是什么
 
 现在你已经能让一个 agent 在生产环境里长期运行、用有据可循的动作从 incident 中恢复,并把信号反馈回 agent 的行为。Ch.20 探讨一个紧密相关的角度:*agent 自主采取行动*。proactive agents(主动型 agent)——cron 调度的工作、事件驱动的唤醒、watchdog、后台 curation——改变了失败模式的集合,并带来它们自己的一套设计纪律(opt-in 语义、升级阶梯、*无人在看* 时的规则)。Ch.21 接着讲 *agent 在两次 run 之间改进自己的行为*——自演化的 memory、skill、prompt 和权重。Ch.22 用一张设计画布为本课程收尾,帮你判断你自己的项目到底需要什么形态的 agent。
+
+---
+
+<!-- nav-footer -->
+<div align="center">
+
+[⬅️ 上一章：Ch.18 Safety & adversarial inputs](18-safety-adversarial-inputs.md) · [📖 课程目录](../../README_zh.md) · [下一章：Ch.20 Proactive agents ➡️](20-proactive-agents.md)
+
+</div>

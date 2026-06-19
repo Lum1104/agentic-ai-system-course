@@ -423,3 +423,12 @@ OpenTelemetry GenAI 约定本身也在演进。把它们当作今天的标准名
 ## 下一章
 
 你现在能看见你的 agent 在做什么了。下一章会用这些测量来决定该用 *哪个模型*、*哪个 provider*，何时 fallback、何时限流，以及如何实时执行每 tenant 的预算。Ch.17 是成本与 latency 策略。
+
+---
+
+<!-- nav-footer -->
+<div align="center">
+
+[⬅️ 上一章：Ch.15 Backend infrastructure](15-backend-infrastructure.md) · [📖 课程目录](../../README_zh.md) · [下一章：Ch.17 Cost, latency & model strategy ➡️](17-cost-latency-model-strategy.md)
+
+</div>

@@ -425,3 +425,12 @@ connector 层特有的、与课程其余部分不同的失败模式：
 ## 接下来
 
 第 14 章从集成管道转向 *扩展的单元*：skill、MCP server 和 subagent —— 同一项能力可以采取的三种不同形状，以及在它们之间做取舍的设计决策。
+
+---
+
+<!-- nav-footer -->
+<div align="center">
+
+[⬅️ 上一章：Ch.12 Human in the loop](12-human-in-the-loop.md) · [📖 课程目录](../../README_zh.md) · [下一章：Ch.14 Skills, MCP & subagents ➡️](14-skills-mcp-subagents.md)
+
+</div>

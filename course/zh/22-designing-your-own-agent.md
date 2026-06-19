@@ -93,3 +93,12 @@ flowchart TD
 这门课的目的，从来不是让你去复制别人的产品，或背下某个 framework。它的目的是给你一张系统地图。一旦你能叫出 loop、boundary、prompt、memory、persistence、planner、delegation、harness、approval gate、connector、skill、backend、trace、routing、safety policy、runbook，以及那条 evolution 反馈边的名字，你就能凭着好得多的直觉去设计自己的东西——剩下的，你的 agent 可以补上。
 
 去搭一个你真心希望它存在的东西吧。陪你读这一章的 agent，你准备好了，它就准备好了。
+
+---
+
+<!-- nav-footer -->
+<div align="center">
+
+[⬅️ 上一章：Ch.21 Self-evolving agents](21-self-evolving-agents.md) · [📖 课程目录](../../README_zh.md)
+
+</div>

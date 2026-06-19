@@ -333,3 +333,12 @@ Anthropic 的《Harness design for long-running agentic applications》一文给
 你现在有了架构、生命周期和扩展面。剩下的章节会加上生产 agent 上线所需的各层：human-in-the-loop 审批（Ch.12）、connectors 和 MCP（Ch.13）、把 skills 和 subagent 设计当作一个单元（Ch.14）、backend 基础设施（Ch.15）、observability（Ch.16）、成本与 latency 策略（Ch.17）、安全与对抗性输入（Ch.18），以及运维（Ch.19）。每一个都是一个组件或关注点，栓接到你现在已有的这套 harness 形态上。
 
 下一章是 Ch.12：那道在采取高风险动作之前暂停 loop、向人类发问的 gate。
+
+---
+
+<!-- nav-footer -->
+<div align="center">
+
+[⬅️ 上一章：Ch.10 Multi-agent delegation](10-multi-agent-delegation.md) · [📖 课程目录](../../README_zh.md) · [下一章：Ch.12 Human in the loop ➡️](12-human-in-the-loop.md)
+
+</div>

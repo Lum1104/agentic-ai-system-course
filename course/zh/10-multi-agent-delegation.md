@@ -285,3 +285,12 @@ flowchart TD
 ## What's next
 
 现在你有了一个会做规划（plan）的父 agent、一种把 subagent 工作表达为有界 packet 的方式，以及让 delegation 保持聚焦的纪律。Ch.11 把 Ch.01–10 的一切组装成单一的 harness——loop、tool registry、prompt builder、memory 层、持久化引擎、planner、delegation 表面——汇成一套你可以适配到自己技术栈的、可组合的架构。
+
+---
+
+<!-- nav-footer -->
+<div align="center">
+
+[⬅️ 上一章：Ch.09 Planning patterns](09-planning-patterns.md) · [📖 课程目录](../../README_zh.md) · [下一章：Ch.11 The agent harness ➡️](11-agent-harness.md)
+
+</div>

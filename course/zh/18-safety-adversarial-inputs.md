@@ -317,3 +317,12 @@ Ch.19 会讲运行这些动作的运维侧——runbook、on-call、事后复盘
 ## 下一步
 
 你现在有了一个威胁模型、一张控制矩阵，以及纵深防御的纪律。Ch.19 转向运维侧：如何随时间在生产中运行一个 agent 系统——打包、部署、runbook、on-call 轮值、事后复盘模板，以及那种 agent 与运维人员一起交付、近到能当面修东西的 forward-deployed 模式。
+
+---
+
+<!-- nav-footer -->
+<div align="center">
+
+[⬅️ 上一章：Ch.17 Cost, latency & model strategy](17-cost-latency-model-strategy.md) · [📖 课程目录](../../README_zh.md) · [下一章：Ch.19 Ops & forward-deployed ➡️](19-ops-and-forward-deployed.md)
+
+</div>

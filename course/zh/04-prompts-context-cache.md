@@ -279,3 +279,12 @@ Hermes Agent 更进一步，把渲染后的前缀持久化到它的 SessionDB。
 ## What's next
 
 你现在有了一个被设计成保持 cache 预热且可复现的 prompt。下一个问题是它所坐落其上的那条易变的 tail——对话历史、tool 结果，以及每一轮都在增长的工作 memory。Ch.05 讲的是如何在不破坏你刚刚构建的 cache 的前提下，防止那条 tail 爆炸；Ch.06–07 讲的是那个更长期的 memory，它会反馈进*下一个* session 的前缀——本章这套纪律正是在那里开始为你回本的。
+
+---
+
+<!-- nav-footer -->
+<div align="center">
+
+[⬅️ 上一章：Ch.03 Tools the agent can trust](03-tools-validation.md) · [📖 课程目录](../../README_zh.md) · [下一章：Ch.05 Short-term memory ➡️](05-short-term-memory.md)
+
+</div>

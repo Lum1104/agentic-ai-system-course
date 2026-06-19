@@ -99,3 +99,12 @@
 今天交付最有意思的 agentic 系统的那些人，并不是经验最丰富的人。他们是最先和自己的 AI 伙伴进入一个紧密 loop、并且在里面待得最久的人。这门课存在的意义，就是让你身处那个 loop 中时，知道该问什么。
 
 翻页吧。Ch.01 是一个 tool call。
+
+---
+
+<!-- nav-footer -->
+<div align="center">
+
+[📖 课程目录](../../README_zh.md) · [下一章：Ch.01 One tool call ➡️](01-function-calling.md)
+
+</div>

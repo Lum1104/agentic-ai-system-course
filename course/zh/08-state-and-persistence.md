@@ -263,3 +263,12 @@ Ch.05 引入了 session rotation（会话轮转）：当 compaction 不再够用
 你现在有了一个能在重启后存活、能跨进程协调工作、并能干净地 resume 而不重复执行破坏性操作的运行时。
 
 再往上一层是 *planning（规划）*——一个 agent 如何在执行之前，决定它在许多 step 上要做什么。Ch.09 讲四种 planning 形态（no plan、checklist、plan-execute-replan、dependency graph），各自何时有帮助、何时帮倒忙，以及藏在那些最省事的选择里的失败模式。
+
+---
+
+<!-- nav-footer -->
+<div align="center">
+
+[⬅️ 上一章：Ch.07 Memory writing & curation](07-memory-writing.md) · [📖 课程目录](../../README_zh.md) · [下一章：Ch.09 Planning patterns ➡️](09-planning-patterns.md)
+
+</div>

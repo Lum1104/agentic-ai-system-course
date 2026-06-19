@@ -314,3 +314,12 @@ OpenClaw 和 Hermes Agent 三者都有；OpenCode 的 plugin 扩展 skill 和 to
 ## 下一章
 
 你现在懂得了扩展的单元。Ch.15 转向支撑 harness 在规模下持续运行的 *backend*——队列、流式端点、持久的副作用机制，以及在用户多于一个、同时在飞的 session 多于一个时，托管 loop、memory、persistence 和 connector 的那个 runtime。
+
+---
+
+<!-- nav-footer -->
+<div align="center">
+
+[⬅️ 上一章：Ch.13 Connectors, MCP, IPC](13-connectors-mcp-ipc.md) · [📖 课程目录](../../README_zh.md) · [下一章：Ch.15 Backend infrastructure ➡️](15-backend-infrastructure.md)
+
+</div>

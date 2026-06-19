@@ -198,3 +198,12 @@ loop 的循环体很小。围绕它的那条边界，才是生产系统真正栖
 ## What's next
 
 你已经有了一个 loop。loop 接下来需要的，是它能信任的 tool。Ch.03 讲的是超越 schema 的那份契约——参数校验、副作用分类、幂等性（idempotency）、可恢复错误与致命错误之间的区别，以及为什么安全的路径比安全的代码更重要。
+
+---
+
+<!-- nav-footer -->
+<div align="center">
+
+[⬅️ 上一章：Ch.01 One tool call](01-function-calling.md) · [📖 课程目录](../../README_zh.md) · [下一章：Ch.03 Tools the agent can trust ➡️](03-tools-validation.md)
+
+</div>

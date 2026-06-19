@@ -277,3 +277,12 @@ recall 层和 prompt-builder 层不是两件分开的事——它们是同一件
 你现在知道了 memory 住在哪里、如何取回它、如何对取回的东西排序，以及它如何契合 Ch.04 的 cache 纪律。
 
 更难的问题是：一开始到底该往 memory 里写什么——以及如何防止它腐烂。Ch.07 会讲写入模式、memory 边界处的安全 filter、原子写入与并发写者争用、冲突解决、让 memory 保持修剪的 curator 生命周期，以及 subagent 在何种意义上被允许、又在何种意义上不被允许写回。
+
+---
+
+<!-- nav-footer -->
+<div align="center">
+
+[⬅️ 上一章：Ch.05 Short-term memory](05-short-term-memory.md) · [📖 课程目录](../../README_zh.md) · [下一章：Ch.07 Memory writing & curation ➡️](07-memory-writing.md)
+
+</div>

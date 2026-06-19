@@ -284,3 +284,12 @@ OpenCode 的「按 agent 削减工具」是最清晰的参照：`explore` agent 
 ## What's next
 
 你现在有了 loop 可以信赖的工具。再往上的一层，是这些工具所栖身的那个 prompt。Ch.04 讲的是 system prompt 是如何被组装起来的、为什么它逐字节（byte-for-byte）的稳定性，正是「每个 turn 都为每个 token 付费」和「只付一次费」之间的分水岭，以及 compaction（Ch.05）必须做些什么来避免破坏那种稳定性。
+
+---
+
+<!-- nav-footer -->
+<div align="center">
+
+[⬅️ 上一章：Ch.02 The agent loop](02-the-agent-loop.md) · [📖 课程目录](../../README_zh.md) · [下一章：Ch.04 Prompts, context & cache ➡️](04-prompts-context-cache.md)
+
+</div>

@@ -268,3 +268,12 @@ rotation 比 compaction 更重——一个新 session 有全新的 system prompt
 你现在有了一份紧凑、去重、summarize 过、不会撑爆 context window 的 operating transcript。但它没有一样能熬过下一个 session。
 
 Ch.06 讲的是那些*确实*能存活下来的记忆——你在多次运行之间持久化什么、模型如何 retrieve 它，以及 vector 索引、full-text search 和 hybrid retrieval 之间如何比较。Ch.07 接着讲如何安全地写入那块记忆，不去毒化它、也不让它随时间漂移。
+
+---
+
+<!-- nav-footer -->
+<div align="center">
+
+[⬅️ 上一章：Ch.04 Prompts, context & cache](04-prompts-context-cache.md) · [📖 课程目录](../../README_zh.md) · [下一章：Ch.06 Long-term recall ➡️](06-long-term-recall.md)
+
+</div>
