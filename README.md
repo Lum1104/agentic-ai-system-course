@@ -1,5 +1,7 @@
 # Agentic System Course - Use Agent to Learn Agent
 
+> English · [中文](README_zh.md)
+
 **Join the [discord channel](https://discord.gg/dWSnHAFdpb) if you want to learn and build together!**
 
 ---
