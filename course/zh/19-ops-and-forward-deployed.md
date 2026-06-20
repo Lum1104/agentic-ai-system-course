@@ -1,4 +1,4 @@
-# 第 19 章 — 运维与 forward-deployed agents
+# Chapter 19 — Operations and forward-deployed agents
 
 ## TL;DR
 
@@ -6,7 +6,7 @@
 
 ---
 
-## 为什么这很重要
+## Why this matters
 
 Agent 的 demo 跑在一个终端里、用一把 API key。真实的部署要服务许多用户,跨越多次重启,还要处理密钥、队列、日志、审批、预算和数据边界。运维设计决定了一个有用的原型能否熬过它与真实使用场景的第一次接触——也决定了团队能否在不每周焦头烂额的情况下持续迭代它。
 
@@ -14,9 +14,9 @@ Agent 的 demo 跑在一个终端里、用一把 API key。真实的部署要服
 
 ---
 
-## 核心概念
+## The concept
 
-### 运营一个 agent 的整体形态
+### The shape of operating an agent
 
 ```mermaid
 flowchart TD
@@ -33,7 +33,7 @@ flowchart TD
 
 把它读成一个闭环。代码变成 package;package 变成一次部署;部署运行起来并发出信号;incident 触发 runbook;post-mortem(事后复盘)再反馈回代码。每个方框都有一个章节负责——Ch.19 的职责是把它们串起来的那套 *运维纪律*。
 
-### 打包与分发
+### Packaging and distribution
 
 一个严肃的 agent 会以下面三种形态之一交付:
 
@@ -45,7 +45,7 @@ flowchart TD
 
 更新机制——Sparkle(Mac 桌面)、`npm publish`、container registry 或 `pip`——应当与安装路径相匹配。把它们混着用会让 operator 困惑(*"我到底该 `apt upgrade` 还是 `pip install -U`?"*)。
 
-### 跨环境的配置
+### Configuration across environments
 
 三层,按加载顺序:
 
@@ -79,7 +79,7 @@ function loadConfig(env: Record<string, string>): AppConfig {
 
 按环境的覆盖:把单独的 config 文件(`config.staging.yaml`、`config.prod.yaml`)纳入版本管理,再用环境变量去覆盖那些真正属于秘密的部分。覆盖链是 *默认值 → 文件 → 环境变量*,严格按此顺序,最后跑一遍 schema 校验。
 
-### Deploy 时的 schema 迁移
+### Schema migration on deploy
 
 Ch.08 讲过数据纪律。在 deploy 时,有三件事必须按顺序发生:
 
@@ -115,7 +115,7 @@ class WorkerRuntime {
 
 来自生产环境的两条规则:graceful drain 要有一个截止期限(通常是几分钟);超过期限仍在运行的任何东西,都在状态机里标记为 `cancelled`(Ch.08),好让 reaper(回收器)干净利落地接手它。并且每次关闭都写下同一个结构化的 *"shutdown reason"*(关闭原因)事件,这样 post-mortem 就能回答 *进程是因为我们让它停才停的,还是它崩溃了?*
 
-### Runbook —— 目录
+### Runbooks — the catalog
 
 运营一个 agent 时使用最频繁的产物就是 runbook。下面是六类反复出现的 incident 及其 runbook 的形态:
 
@@ -141,11 +141,11 @@ agent 运维中最被低估、最少被讨论的一种模式是:*operator 随 ag
 - **skill 和 memory 在磁盘上累积**(Ch.06、Ch.07)。随着 operator 使用,agent 会变得更聪明,无需外部知识库。当 operator 把系统交接给同事时,skill 目录就是交接产物。
 - **配置就是 operator repo 里的一个文件**(或一个私有 gist),密钥放在操作系统 keychain 或一个加密的本地存储里。没有云配置 UI;没有需要保持同步的独立部署看板。
 - **observability 是可配置的,而非默认假定的。** 敏感的部署会自托管 trace(Ch.16);离线模式会优雅降级。由 operator 决定什么东西离开这台机器。
-- **operator 为行为 on-call,而非为基础设施。** 云上的 SRE 盯着 CPU 和内存。forward-deployed 的 operator 盯着 *agent 做了什么*——当 agent 卡住时编辑 skill,当某个 incident 反复出现时新增一条 runbook,当 API key 轮换时旋转 auth token。
+- **operator 为行为 on-call,而非为基础设施。** 云上的 SRE 盯着 CPU 和内存。forward-deployed 的 operator 盯着 *agent 做了什么*——当 agent 卡住时编辑 skill,当某个 incident 反复出现时新增一条 runbook,当 API key 轮换时同步轮换 auth token。
 
 这种模式适用于:客户更看重控制权而非便利性、数据不能离开客户边界、或者工作流足够定制化以至于一刀切的 SaaS 行不通的时候。大多数内部工具的部署都适合。许多企业部署也适合。多 tenant 的消费级应用通常不适合——Ch.15 里 Paperclip 那种控制平面(control-plane)的形态才是那里的正确模型。
 
-### agent-operator 这个角色
+### The agent-operator role
 
 谁来看着 agent?他们需要哪些技能?这个角色无法干净地对应到 *SRE* 或 *开发者*。一份有用的岗位描述:
 
@@ -158,7 +158,7 @@ agent 运维中最被低估、最少被讨论的一种模式是:*operator 随 ag
 
 这个角色更接近一名 *领域 SRE(domain SRE)* 而非传统 SRE。大多数团队要么从一位喜欢这个 agent 的资深工程师那里培养出这个角色,要么招一个本身就具备领域知识的人。最不奏效的拆分是:一个通用的 ops 团队盯着 CPU 看板,而另一个独立的 ML 团队盯着模型。两边都漏掉了 agent 实际 *做了什么*。
 
-### 运维成熟度的演进
+### Operational maturity progression
 
 大多数 agent 部署会走过四个阶段,有时就在同一个团队内部完成:
 
@@ -177,7 +177,7 @@ flowchart LR
 
 大多数 agent 部署在 Stage 1 或 2 上生存并茁壮成长。在工作负载尚不足以证明其必要性之前就硬推到 Stage 3,是一种常见的"工程自娱自乐"。
 
-### agent 行为的变更管理
+### Change management for agent behavior
 
 prompt、skill 和 tool 的改动与代码的 deploy 方式不同:
 
@@ -187,7 +187,7 @@ prompt、skill 和 tool 的改动与代码的 deploy 方式不同:
 - **模型升级** 在晋升前需要一个 eval gate(Ch.16)——把近期生产 run 的廉价 trace 在新模型上重放,以旧模型的结果为基准打分。
 - **rollback 纪律。** 每一次改动都应当无需 deploy 即可逆:prompt、skill 和 tool 都应当放在 repo 里(或放在一个带版本的 config 里),这样 `git revert` 就能把 agent 退回它原来的样子。
 
-### 模型生命周期
+### Model lifecycle
 
 你 agent 底下的那个模型,是一个按厂商节奏而非你的节奏老化的第三方依赖。这里的纪律是:
 
@@ -198,7 +198,7 @@ prompt、skill 和 tool 的改动与代码的 deploy 方式不同:
 
 把模型当作任何其他有发布周期的依赖来对待:pin 住、监控、把守、canary。
 
-### agent 的 SLO 与错误预算
+### SLOs and error budgets for agents
 
 对 agent SLO 真正重要的那些指标是 *agent 形态* 的,而非 *web 形态* 的。下面的数字是 *起步示例*,而非默认值——从你自己工作负载的基线测量里挑选目标(*目标 = 基线 + 改进*,而不是 *目标 = 教科书上的数字*):
 
@@ -213,7 +213,7 @@ prompt、skill 和 tool 的改动与代码的 deploy 方式不同:
 
 错误预算的运作方式与普通服务相同:为每季度的失败 run 设一个预算,由 incident 逐步消耗。当预算耗尽时,功能开发暂停,直到可靠性工作追上来。会把团队搞垮的形态是:在基础设施指标(CPU、RAM)上设 SLO,而对用户可见的指标(任务成功率)却无人监控。
 
-### 来自生产的反馈回路
+### Feedback loops from production
 
 信号通过五条路径回流到开发团队:
 
@@ -225,7 +225,7 @@ prompt、skill 和 tool 的改动与代码的 deploy 方式不同:
 
 这里的纪律是:每一条渠道都汇入开发团队按固定节奏评审的同一个队列——每周是一个有用的起点。从许多渠道分诊却不做聚合,正是 regression(回归问题)在众目睽睽下藏身的方式。
 
-### 凌晨三点真正会被读的 runbook 格式
+### The runbook format that gets read at 3 a.m.
 
 奏效的 runbook,是那个有人在被叫醒时真的会去读的那一份。来自生产环境的五条规则:
 
@@ -271,7 +271,7 @@ prompt、skill 和 tool 的改动与代码的 deploy 方式不同:
 
 ---
 
-## 真实系统注记
+## Real-system notes
 
 - **Paperclip** 是最偏运维的参考系统:带定时 `pg_dump` 的 Postgres、带 `secret_access_events` 审计的加密密钥、plugin worker 隔离、adapter 级的 config 与预算、兼作审计轨迹的 run 日志,以及一个用于 run 检查的控制平面 UI。读它是为了搞清 *一个运维级的 agent 服务到底长什么样*。
 - **OpenCode** 展示了本地优先的分发:内嵌 server、桌面封装、TUI,以及启动时的 Drizzle 迁移。是 forward-deployed 单用户形态的有力参考。
@@ -280,7 +280,7 @@ prompt、skill 和 tool 的改动与代码的 deploy 方式不同:
 
 ---
 
-## 常见失败案例
+## Common failure cases
 
 *这些失败是持久的;它们的修复方式演变得最快——每条只点明模式,把当下的具体细节留给你和你的 AI 伙伴。*
 
@@ -292,7 +292,7 @@ prompt、skill 和 tool 的改动与代码的 deploy 方式不同:
 
 ---
 
-## 与你的 agent 结对
+## Pair with your agent
 
 - *"盘点我 agent 的每一个运维面:打包、config、密钥、deploy、迁移、shutdown、runbook、SLO、反馈回路。对每一项,标出我已经有的、缺失的,并为每个缺口提出最小的第一步。"*
 - *"把本章的 runbook 目录写成 `RUNBOOK/` 里的 markdown 文件。每个文件:症状、首要检查项、可能的修复、rollback。链接到我 OTLP 后端里实际的看板或 trace 查询。"*
@@ -305,7 +305,7 @@ prompt、skill 和 tool 的改动与代码的 deploy 方式不同:
 
 ---
 
-## 接下来是什么
+## What's next
 
 现在你已经能让一个 agent 在生产环境里长期运行、用有据可循的动作从 incident 中恢复,并把信号反馈回 agent 的行为。Ch.20 探讨一个紧密相关的角度:*agent 自主采取行动*。proactive agents(主动型 agent)——cron 调度的工作、事件驱动的唤醒、watchdog、后台 curation——改变了失败模式的集合,并带来它们自己的一套设计纪律(opt-in 语义、升级阶梯、*无人在看* 时的规则)。Ch.21 接着讲 *agent 在两次 run 之间改进自己的行为*——自演化的 memory、skill、prompt 和权重。Ch.22 用一张设计画布为本课程收尾,帮你判断你自己的项目到底需要什么形态的 agent。
 

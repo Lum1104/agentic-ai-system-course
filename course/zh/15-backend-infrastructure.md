@@ -1,4 +1,4 @@
-# Chapter 15 — Backend infrastructure for agents（面向 agent 的 backend 基础设施）
+# Chapter 15 — Backend infrastructure for agents
 
 ## TL;DR
 

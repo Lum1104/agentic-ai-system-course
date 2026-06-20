@@ -201,7 +201,7 @@ type PlanningCheckpoint = {
 
 ### Plan revision UX
 
-如果用户能在执行途中编辑 plan，你就能得到一个好得多的反馈回路——这也是让 agent 保持诚实的最便宜手段之一。其 pattern 是：
+如果用户能在执行途中编辑 plan，你就能得到一个好得多的反馈回路——这也是让 agent 不至于跑偏的最便宜手段之一。其 pattern 是：
 
 - plan 存放在用户看得见的地方（一个文件、一个 UI 面板、一条聊天消息）。
 - agent 在每一 turn 开头重新读取这份 plan。
